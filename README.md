@@ -21,7 +21,7 @@ region.
 When creating a new template variable, select 'Geofence' as the input type. You
 can specify the default map center and zoom level. This is only used when
 editing resources in the manager. Latitude and longitude co-ordinates should be
-specified in demical degress format. Zoom level can be any number from 1 to 30.
+specified in decimal degress format. Zoom level can be any number from 1 to 30.
 Many areas of the world do not have map data above zoom level 20.
 
 Next, select 'Geofence' as the output type. There are several fields that allow
@@ -37,7 +37,7 @@ you to customize the output.
     inserted between each area in the rendered output.
   * Point template: the name of a chunk used to render each set of geographic
     co-ordinates. The [[+latitude]] and [[+longitude]] placeholders contain the
-    latitude and longitude co-oridnates respectively.
+    latitude and longitude co-ordinates respectively.
   * Point separator: A string used to separate each point. The text will be
     inserted between each set of co-ordinates in the rendered output.
 
