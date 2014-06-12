@@ -11,7 +11,7 @@ if(!class_exists('GeoTVOutputRender')) {
             $data = json_decode($value);
             $areas = array();
 
-            if ($data) {
+            if (is_object($data) && isset($data->areas)) {
                 foreach ($data->areas as $area) {
                     $points = array();
 
@@ -45,9 +45,7 @@ if(!class_exists('GeoTVOutputRender')) {
                     $output = $areaString;
                 }
 
-                return $output ? $output : "\n";
-            } else {
-                return '';
+                return $output;
             }
         }
     }

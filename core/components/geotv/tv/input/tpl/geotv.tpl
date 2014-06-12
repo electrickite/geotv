@@ -34,8 +34,6 @@ function initializeGlobalsTV{$tv->id}() {
   }
 }
 
-initializeGlobalsTV{$tv->id}();
-
 function initializeMapTV{$tv->id}() {
   var mapOptions = {
     center: new google.maps.LatLng(tv{$tv->id}Data.lat, tv{$tv->id}Data.lng),
@@ -93,8 +91,14 @@ function initializeMapTV{$tv->id}() {
     tv{$tv->id}Data.lat = tv{$tv->id}Map.getCenter().lat();
     tv{$tv->id}Data.lng = tv{$tv->id}Map.getCenter().lng();
 
-    tv{$tv->id}Input.value = JSON.stringify(tv{$tv->id}Data);
-    MODx.fireResourceFormChange();
+    if (
+      typeof(tv{$tv->id}Data.areas) != "undefined"
+      && Object.prototype.toString.call(tv{$tv->id}Data.areas) === '[object Array]'
+      && tv{$tv->id}Data.areas.length > 0
+    ) {
+      tv{$tv->id}Input.value = JSON.stringify(tv{$tv->id}Data);
+      MODx.fireResourceFormChange();
+    }
   });
 }
 
@@ -131,6 +135,7 @@ Ext.onReady(function() {
     Ext.getCmp('modx-panel-resource').getForm().add(fld);
     {/literal}
 
+    initializeGlobalsTV{$tv->id}();
     google.maps.event.addDomListener(window, 'load', initializeMapTV{$tv->id}());
 
     var mainTabs = Ext.getCmp("modx-resource-tabs");
