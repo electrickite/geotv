@@ -21,7 +21,7 @@ region.
 When creating a new template variable, select 'Geofence' as the input type. You
 can specify the default map center and zoom level. This is only used when
 editing resources in the manager. Latitude and longitude co-ordinates should be
-specified in decimal degress format. Zoom level can be any number from 1 to 30.
+specified in decimal degrees format. Zoom level can be any number from 1 to 30.
 Many areas of the world do not have map data above zoom level 20.
 
 Next, select 'Geofence' as the output type. There are several fields that allow
@@ -42,7 +42,7 @@ you to customize the output.
     inserted between each set of co-ordinates in the rendered output.
 
 Once the TV has been created, add it to a template. The template variables tab
-of a resource using the template will conatain a map centered at the location
+of a resource using the template will contain a map centered at the location
 specified in the TV input options. Fenced areas can be created with the draw
 tool icon on the top of the map. It can be panned using the "hand" icon. You can
 clear the geo data by clicking the "Clear map" link.

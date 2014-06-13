@@ -1,5 +1,10 @@
 Changelog for GeoTV
 
+GeoTV 0.2.0
+---------------------------------
+  - Corrected name of TV input and output types
+  - Bug fixes
+
 GeoTV 0.1.0
 ---------------------------------
-Initial Version
+  - Initial Version

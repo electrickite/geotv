@@ -3,4 +3,4 @@ $lang = $modx->lexicon->fetch('geotv.', true);
 $modx->smarty->assign('geotv', $lang);
 
 $corePath = $modx->getObject('modNamespace', 'geotv')->getCorePath();
-return $modx->smarty->fetch($corePath . 'tv/properties/tpl/geotv.tpl');
+return $modx->smarty->fetch($corePath . 'tv/inputoptions/tpl/geotv_geofence.tpl');

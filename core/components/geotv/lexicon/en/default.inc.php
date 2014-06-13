@@ -6,8 +6,7 @@
  */
 
 $_lang['geotv'] = 'GeoTV';
-$_lang['geotv_input'] = 'Geofence';
-$_lang['geotv_output'] = 'Geofence';
+$_lang['geotv_geofence'] = 'Geofence';
 
 $_lang['geotv.loading'] = 'Please wait. Loading map...';
 $_lang['geotv.clear'] = 'Clear map';

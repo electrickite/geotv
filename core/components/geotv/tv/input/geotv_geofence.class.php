@@ -2,7 +2,7 @@
 if(!class_exists('GeoTVInputRender')) {
     class GeoTVInputRender extends modTemplateVarInputRender {
         public function getTemplate() {
-            return $this->modx->getObject('modNamespace','geotv')->getCorePath().'tv/input/tpl/geotv.tpl';
+            return $this->modx->getObject('modNamespace','geotv')->getCorePath().'tv/input/tpl/geotv_geofence.tpl';
         }
         public function process($value,array $params = array()) {
             $params['centerLat'] = floatval($this->modx->getOption('centerLat', $params, 39, true));
