@@ -91,20 +91,23 @@ function initializeMapTV{$tv->id}() {
     tv{$tv->id}Data.lat = tv{$tv->id}Map.getCenter().lat();
     tv{$tv->id}Data.lng = tv{$tv->id}Map.getCenter().lng();
 
+    var jsonData = JSON.stringify(tv{$tv->id}Data);
+
     if (
       typeof(tv{$tv->id}Data.areas) != "undefined"
       && Object.prototype.toString.call(tv{$tv->id}Data.areas) === '[object Array]'
       && tv{$tv->id}Data.areas.length > 0
+      && tv{$tv->id}Input.value != jsonData
     ) {
-      tv{$tv->id}Input.value = JSON.stringify(tv{$tv->id}Data);
+      tv{$tv->id}Input.value = jsonData;
       MODx.fireResourceFormChange();
     }
   });
 }
 
 function resetMap(m) {
-   x = m.getZoom();
-   c = m.getCenter();
+   var x = m.getZoom();
+   var c = m.getCenter();
    google.maps.event.trigger(m, 'resize');
    m.setZoom(x);
    m.setCenter(c);
