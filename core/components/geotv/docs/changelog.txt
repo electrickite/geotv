@@ -1,5 +1,9 @@
 Changelog for GeoTV
 
+GeoTV 0.2.1
+---------------------------------
+  - Removed OS hidden file from package
+
 GeoTV 0.2.0
 ---------------------------------
   - Corrected name of TV input and output types

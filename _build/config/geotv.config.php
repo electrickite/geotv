@@ -16,12 +16,12 @@ $components = array(
     'packageName' => 'GeoTV',  /* No spaces, no dashes */
     'packageNameLower' => $packageNameLower,
     'packageDescription' => 'Adds geofencing template variable',
-    'version' => '0.2.0',
+    'version' => '0.2.1',
     'release' => 'pl',
     'author' => 'Corey Hinshaw',
     'email' => '<hinshaw.25@osu.edu>',
     'packageDocumentationUrl' => 'https://github.com/osucomm/geotv',
-    'copyright' => '2014',
+    'copyright' => '2015',
 
     /* no need to edit this except to change format */
     'createdon' => strftime('%m-%d-%Y'),
