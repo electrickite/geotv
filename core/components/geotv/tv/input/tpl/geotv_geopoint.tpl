@@ -27,7 +27,7 @@ function initializeGlobalsTV{$tv->id}() {
   tv{$tv->id}Input = document.getElementById("tv{$tv->id}");
   try {
     tv{$tv->id}Data = JSON.parse(tv{$tv->id}Input.value);
-    if (tv{$tv->id}Data.areas === null || typeof tv{$tv->id}Data.areas !== 'object') {
+    if (tv{$tv->id}Data.points === null || typeof tv{$tv->id}Data.points !== 'object') {
       throw "Parsing Error";
     }
   } catch (e) {
@@ -35,7 +35,7 @@ function initializeGlobalsTV{$tv->id}() {
       lat: tv{$tv->id}params.centerLat,
       lng:  tv{$tv->id}params.centerLng,
       zoom: tv{$tv->id}params.zoom,
-      areas: []
+      points: []
     };
   }
 }
@@ -49,49 +49,38 @@ function initializeMapTV{$tv->id}() {
   tv{$tv->id}Map = new google.maps.Map(document.getElementById('tv{$tv->id}-map-canvas'), mapOptions);
 
   var drawingManager = new google.maps.drawing.DrawingManager({
-    drawingMode: google.maps.drawing.OverlayType.POLYGON,
+    drawingMode: google.maps.drawing.OverlayType.MARKER,
     drawingControl: true,
     drawingControlOptions: {
       position: google.maps.ControlPosition.TOP_CENTER,
       drawingModes: [
-        google.maps.drawing.OverlayType.POLYGON
+        google.maps.drawing.OverlayType.MARKER
       ]
     }
   });
   drawingManager.setMap(tv{$tv->id}Map);
 
-  var shapes = new Array();
-  var areas = tv{$tv->id}Data.areas;
+  var markers = new Array();
+  var points = tv{$tv->id}Data.points;
 
-  for(i=0; i<areas.length; i++) {
-    var shapeCoords = new Array();
-
-    for(j=0; j<areas[i].length; j++) {
-      var point = areas[i][j];
-      shapeCoords.push(new google.maps.LatLng(point.lat, point.lng));
-    }
-
-    shapes.push(new google.maps.Polygon({
-      paths: shapeCoords
+  for(i=0; i<points.length; i++) {
+    markers.push(new google.maps.Marker({
+      position: new google.maps.LatLng(points[i].lat, points[i].lng),
+      map: tv{$tv->id}Map
     }));
   }
 
-  setAllShapeMaps(tv{$tv->id}Map);
-
-  google.maps.event.addListener(drawingManager, 'polygoncomplete', function(polygon) {
-    var points = [];
-    polygon.getPath().forEach(function(elem, index){
-        points.push({ lat: elem.lat(), lng: elem.lng() });
-    });
+  google.maps.event.addListener(drawingManager, 'markercomplete', function(marker) {
+    var point = { lat: marker.getPosition().lat(), lng: marker.getPosition().lng() };
 
     if (tv{$tv->id}params.allowMultiple) {
-      tv{$tv->id}Data.areas.push(points);
+      tv{$tv->id}Data.points.push(point);
     } else {
-      setAllShapeMaps(null);
-      tv{$tv->id}Data.areas = [points];
+      setAllMarkerMaps(null);
+      tv{$tv->id}Data.points = [point];
     }
 
-    shapes.push(polygon);
+    markers.push(marker);
     tv{$tv->id}Input.value = JSON.stringify(tv{$tv->id}Data);
     MODx.fireResourceFormChange();
   });
@@ -104,9 +93,9 @@ function initializeMapTV{$tv->id}() {
     var jsonData = JSON.stringify(tv{$tv->id}Data);
 
     if (
-      typeof(tv{$tv->id}Data.areas) != "undefined"
-      && Object.prototype.toString.call(tv{$tv->id}Data.areas) === '[object Array]'
-      && tv{$tv->id}Data.areas.length > 0
+      typeof(tv{$tv->id}Data.points) != "undefined"
+      && Object.prototype.toString.call(tv{$tv->id}Data.points) === '[object Array]'
+      && tv{$tv->id}Data.points.length > 0
       && tv{$tv->id}Input.value != jsonData
     ) {
       tv{$tv->id}Input.value = jsonData;
@@ -114,9 +103,9 @@ function initializeMapTV{$tv->id}() {
     }
   });
 
-  function setAllShapeMaps(value) {
-    for (var i = 0; i < shapes.length; i++) {
-      shapes[i].setMap(value);
+  function setAllMarkerMaps(value) {
+    for (var i = 0; i < markers.length; i++) {
+      markers[i].setMap(value);
     }
   }
 }

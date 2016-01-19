@@ -1,6 +1,6 @@
 <?php
-if(!class_exists('GeoTVOutputRender')) {
-    class GeoTVOutputRender extends modTemplateVarOutputRender {
+if(!class_exists('GeoTVFenceOutputRender')) {
+    class GeoTVFenceOutputRender extends modTemplateVarOutputRender {
         public function process($value, array $params = array()) {
             $wrapperTpl = isset($params['wrapperTpl']) ? $params['wrapperTpl'] : null;
             $areaTpl = isset($params['areaTpl']) ? $params['areaTpl'] : null;
@@ -50,4 +50,4 @@ if(!class_exists('GeoTVOutputRender')) {
         }
     }
 }
-return 'GeoTVOutputRender';
+return 'GeoTVFenceOutputRender';

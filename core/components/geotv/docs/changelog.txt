@@ -1,5 +1,9 @@
 Changelog for GeoTV
 
+GeoTV 1.0.0
+---------------------------------
+  - Added geographic point tenplate variable
+
 GeoTV 0.2.1
 ---------------------------------
   - Removed OS hidden file from package

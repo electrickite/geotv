@@ -19,6 +19,21 @@ MODx.load({
     ,labelAlign: 'top'
     ,labelSeparator: ''
     ,items: [{
+        xtype: 'combo-boolean'
+        ,fieldLabel: '{/literal}{$geotv.allowMultiple}{literal}'
+        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.allowMultipleDesc}{literal}'
+        ,name: 'inopt_allowMultiple'
+        ,hiddenName: 'inopt_allowMultiple'
+        ,id: 'inopt_allowMultiple{/literal}{$tv}{literal}'
+        ,value: params['allowMultiple'] == 0 || params['allowMultiple'] == 'false' ? false : true
+        ,width: 200
+        ,listeners: oc
+    },{
+        xtype: MODx.expandHelp ? 'label' : 'hidden'
+        ,forId: 'inopt_allowMultiple{/literal}{$tv}{literal}'
+        ,html: '{/literal}{$geotv.allowMultipleDesc}{literal}'
+        ,cls: 'desc-under'
+    },{
         xtype: 'numberfield'
         ,fieldLabel: '{/literal}{$geotv.centerLat}{literal}'
         ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.centerLatDesc}{literal}'

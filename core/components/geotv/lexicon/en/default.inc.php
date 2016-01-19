@@ -6,11 +6,14 @@
  */
 
 $_lang['geotv'] = 'GeoTV';
-$_lang['geotv_geofence'] = 'Geofence';
+$_lang['geotv_geofence'] = 'Geographic Area';
+$_lang['geotv_geopoint'] = 'Geographic Point';
 
 $_lang['geotv.loading'] = 'Please wait. Loading map...';
-$_lang['geotv.clear'] = 'Clear map';
+$_lang['geotv.clear'] = 'Clear all locations';
 
+$_lang['geotv.allowMultiple'] = 'Multiple values';
+$_lang['geotv.allowMultipleDesc'] = 'Allow user to enter multiple values for this field';
 $_lang['geotv.centerLat'] = 'Default latitude';
 $_lang['geotv.centerLatDesc'] = 'The default latitude of the map center (in decimal degrees)';
 $_lang['geotv.centerLng'] = 'Default longitude';
