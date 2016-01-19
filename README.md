@@ -81,4 +81,4 @@ an issue in the project's issue queue.
 
 
 [1]: https://developers.google.com/maps/documentation/javascript/
-[2]: https://github.com/osucomm/geotv
+[2]: https://github.com/electrickite/geotv

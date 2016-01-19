@@ -5,7 +5,7 @@ Adds several geographic template variable types to MODX Revolution. They allow
 multiple geographic points and/or areas to be associated with a resource and can
 render the location data as a series of GPS co-ordinates.
 
-Mapping data is provided by the Google Maps Javascript API. (https://developers.google.com/maps/documentation/javascript/)
+Mapping data is provided by the [Google Maps Javascript API][1].
 
 Installation
 ------------
@@ -76,5 +76,9 @@ that allow you to customize the output.
 Contributing
 ------------
 
-GeoTV is hosted on GitHub (https://github.com/osucomm/geotv). Ideas for
-improvements? Bug reports? Please open an issue in the project's issue queue.
+GeoTV is [hosted on GitHub][2]. Ideas for improvements? Bug reports? Please open
+an issue in the project's issue queue.
+
+
+[1]: https://developers.google.com/maps/documentation/javascript/
+[2]: https://github.com/electrickite/geotv
