@@ -15,7 +15,7 @@ Install via the MODX package manager.
 Use
 ---
 
-GeoTV provides to new TV types, Geographic Area and Geographic Point.
+GeoTV provides two new TV types, Geographic Area and Geographic Point.
 
 Once a TV has been created, add it to a template. The template variables tab
 of a resource using the template will contain a map centered at the location
