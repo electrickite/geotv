@@ -19,8 +19,8 @@ MODx.load({
     ,border: false
     ,items: [{
         xtype: 'textfield'
-        ,fieldLabel: '{/literal}{$geotv.wrapperTpl}{literal}'
-        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.wrapperTplDesc}{literal}'
+        ,fieldLabel: '{/literal}{$geotv.wrapperTpl|escape:"javascript"}{literal}'
+        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.wrapperTplDesc|escape:"javascript"}{literal}'
         ,name: 'prop_wrapperTpl'
         ,id: 'prop_wrapperTpl{/literal}{$tv}{literal}'
         ,value: params['wrapperTpl'] || ''
@@ -29,12 +29,12 @@ MODx.load({
     },{
         xtype: MODx.expandHelp ? 'label' : 'hidden'
         ,forId: 'prop_wrapperTpl{/literal}{$tv}{literal}'
-        ,html: '{/literal}{$geotv.wrapperTplDesc}{literal}'
+        ,html: '{/literal}{$geotv.wrapperTplDesc|escape:"javascript"}{literal}'
         ,cls: 'desc-under'
     },{
         xtype: 'textfield'
-        ,fieldLabel: '{/literal}{$geotv.areaTpl}{literal}'
-        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.areaTplDesc}{literal}'
+        ,fieldLabel: '{/literal}{$geotv.areaTpl|escape:"javascript"}{literal}'
+        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.areaTplDesc|escape:"javascript"}{literal}'
         ,name: 'prop_areaTpl'
         ,id: 'prop_areaTpl{/literal}{$tv}{literal}'
         ,value: params['areaTpl'] || ''
@@ -43,12 +43,12 @@ MODx.load({
     },{
         xtype: MODx.expandHelp ? 'label' : 'hidden'
         ,forId: 'prop_areaTpl{/literal}{$tv}{literal}'
-        ,html: '{/literal}{$geotv.areaTplDesc}{literal}'
+        ,html: '{/literal}{$geotv.areaTplDesc|escape:"javascript"}{literal}'
         ,cls: 'desc-under'
     },{
         xtype: 'textarea'
-        ,fieldLabel: '{/literal}{$geotv.areaSep}{literal}'
-        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.areaSepDesc}{literal}'
+        ,fieldLabel: '{/literal}{$geotv.areaSep|escape:"javascript"}{literal}'
+        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.areaSepDesc|escape:"javascript"}{literal}'
         ,name: 'prop_areaSep'
         ,id: 'prop_areaSep{/literal}{$tv}{literal}'
         ,value: params['areaSep'] || ''
@@ -58,12 +58,12 @@ MODx.load({
     },{
         xtype: MODx.expandHelp ? 'label' : 'hidden'
         ,forId: 'prop_areaSep{/literal}{$tv}{literal}'
-        ,html: '{/literal}{$geotv.areaSepDesc}{literal}'
+        ,html: '{/literal}{$geotv.areaSepDesc|escape:"javascript"}{literal}'
         ,cls: 'desc-under'
     },{
         xtype: 'textfield'
-        ,fieldLabel: '{/literal}{$geotv.pointTpl}{literal}'
-        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.pointTplDesc}{literal}'
+        ,fieldLabel: '{/literal}{$geotv.pointTpl|escape:"javascript"}{literal}'
+        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.pointTplDesc|escape:"javascript"}{literal}'
         ,name: 'prop_pointTpl'
         ,id: 'prop_pointTpl{/literal}{$tv}{literal}'
         ,value: params['pointTpl'] || ''
@@ -72,12 +72,12 @@ MODx.load({
     },{
         xtype: MODx.expandHelp ? 'label' : 'hidden'
         ,forId: 'prop_pointTpl{/literal}{$tv}{literal}'
-        ,html: '{/literal}{$geotv.pointTplDesc}{literal}'
+        ,html: '{/literal}{$geotv.pointTplDesc|escape:"javascript"}{literal}'
         ,cls: 'desc-under'
     },{
         xtype: 'textarea'
-        ,fieldLabel: '{/literal}{$geotv.pointSep}{literal}'
-        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.pointSepDesc}{literal}'
+        ,fieldLabel: '{/literal}{$geotv.pointSep|escape:"javascript"}{literal}'
+        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.pointSepDesc|escape:"javascript"}{literal}'
         ,name: 'prop_pointSep'
         ,id: 'prop_pointSep{/literal}{$tv}{literal}'
         ,value: params['pointSep'] || ''
@@ -87,7 +87,7 @@ MODx.load({
     },{
         xtype: MODx.expandHelp ? 'label' : 'hidden'
         ,forId: 'prop_pointSep{/literal}{$tv}{literal}'
-        ,html: '{/literal}{$geotv.pointSepDesc}{literal}'
+        ,html: '{/literal}{$geotv.pointSepDesc|escape:"javascript"}{literal}'
         ,cls: 'desc-under'
     }]
     ,renderTo: 'tv-output-properties-form{/literal}{$tv}{literal}'

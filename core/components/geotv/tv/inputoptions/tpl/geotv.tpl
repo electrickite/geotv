@@ -20,8 +20,8 @@ MODx.load({
     ,labelSeparator: ''
     ,items: [{
         xtype: 'combo-boolean'
-        ,fieldLabel: '{/literal}{$geotv.allowMultiple}{literal}'
-        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.allowMultipleDesc}{literal}'
+        ,fieldLabel: '{/literal}{$geotv.allowMultiple|escape:"javascript"}{literal}'
+        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.allowMultipleDesc|escape:"javascript"}{literal}'
         ,name: 'inopt_allowMultiple'
         ,hiddenName: 'inopt_allowMultiple'
         ,id: 'inopt_allowMultiple{/literal}{$tv}{literal}'
@@ -31,12 +31,12 @@ MODx.load({
     },{
         xtype: MODx.expandHelp ? 'label' : 'hidden'
         ,forId: 'inopt_allowMultiple{/literal}{$tv}{literal}'
-        ,html: '{/literal}{$geotv.allowMultipleDesc}{literal}'
+        ,html: '{/literal}{$geotv.allowMultipleDesc|escape:"javascript"}{literal}'
         ,cls: 'desc-under'
     },{
         xtype: 'numberfield'
-        ,fieldLabel: '{/literal}{$geotv.centerLat}{literal}'
-        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.centerLatDesc}{literal}'
+        ,fieldLabel: '{/literal}{$geotv.centerLat|escape:"javascript"}{literal}'
+        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.centerLatDesc|escape:"javascript"}{literal}'
         ,name: 'inopt_centerLat'
         ,hiddenName: 'inopt_centerLat'
         ,id: 'inopt_centerLat{/literal}{$tv}{literal}'
@@ -49,12 +49,12 @@ MODx.load({
     },{
         xtype: MODx.expandHelp ? 'label' : 'hidden'
         ,forId: 'inopt_centerLat{/literal}{$tv}{literal}'
-        ,html: '{/literal}{$geotv.centerLatDesc}{literal}'
+        ,html: '{/literal}{$geotv.centerLatDesc|escape:"javascript"}{literal}'
         ,cls: 'desc-under'
     },{
         xtype: 'numberfield'
-        ,fieldLabel: '{/literal}{$geotv.centerLng}{literal}'
-        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.centerLngDesc}{literal}'
+        ,fieldLabel: '{/literal}{$geotv.centerLng|escape:"javascript"}{literal}'
+        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.centerLngDesc|escape:"javascript"}{literal}'
         ,name: 'inopt_centerLng'
         ,hiddenName: 'inopt_centerLng'
         ,id: 'inopt_centerLng{/literal}{$tv}{literal}'
@@ -67,12 +67,12 @@ MODx.load({
     },{
         xtype: MODx.expandHelp ? 'label' : 'hidden'
         ,forId: 'inopt_centerLng{/literal}{$tv}{literal}'
-        ,html: '{/literal}{$geotv.centerLngDesc}{literal}'
+        ,html: '{/literal}{$geotv.centerLngDesc|escape:"javascript"}{literal}'
         ,cls: 'desc-under'
     },{
         xtype: 'numberfield'
-        ,fieldLabel: '{/literal}{$geotv.zoom}{literal}'
-        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.zoomDesc}{literal}'
+        ,fieldLabel: '{/literal}{$geotv.zoom|escape:"javascript"}{literal}'
+        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.zoomDesc|escape:"javascript"}{literal}'
         ,name: 'inopt_zoom'
         ,hiddenName: 'inopt_zoom'
         ,id: 'inopt_zoom{/literal}{$tv}{literal}'
@@ -85,7 +85,7 @@ MODx.load({
     },{
         xtype: MODx.expandHelp ? 'label' : 'hidden'
         ,forId: 'inopt_zoom{/literal}{$tv}{literal}'
-        ,html: '{/literal}{$geotv.zoomDesc}{literal}'
+        ,html: '{/literal}{$geotv.zoomDesc|escape:"javascript"}{literal}'
         ,cls: 'desc-under'
     }]
     ,renderTo: 'tv-input-properties-form{/literal}{$tv}{literal}'
