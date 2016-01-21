@@ -2,11 +2,14 @@
 if(!class_exists('GeoTVFenceOutputRender')) {
     class GeoTVFenceOutputRender extends modTemplateVarOutputRender {
         public function process($value, array $params = array()) {
+            $locale = localeconv();
+
             $wrapperTpl = isset($params['wrapperTpl']) ? $params['wrapperTpl'] : null;
             $areaTpl = isset($params['areaTpl']) ? $params['areaTpl'] : null;
             $pointTpl = isset($params['pointTpl']) ? $params['pointTpl'] : null;
             $areaSep = isset($params['areaSep']) ? $params['areaSep'] : '';
             $pointSep = isset($params['pointSep']) ? $params['pointSep'] : '';
+            $decimalSep = isset($params['decimalSep']) ? $params['decimalSep'] : $locale['decimal_point'];
 
             $data = json_decode($value);
             $areas = array();
@@ -16,13 +19,16 @@ if(!class_exists('GeoTVFenceOutputRender')) {
                     $points = array();
 
                     foreach ($area as $point) {
+                        $latitude = number_format($point->lat, 8, $decimalSep, '');
+                        $longitude = number_format($point->lng, 8, $decimalSep, '');
+
                         if ($pointTpl) {
                             $points[] = $this->modx->getChunk($pointTpl, array(
-                                'latitude' => $point->lat,
-                                'longitude' => $point->lng,
+                                'latitude' => $latitude,
+                                'longitude' => $longitude,
                             ));
                         } else {
-                            $points[] = $point->lat.$point->lng;
+                            $points[] = $latitude.$longitude;
                         }
                     }
 

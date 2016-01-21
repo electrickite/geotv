@@ -60,6 +60,20 @@ MODx.load({
         ,forId: 'prop_pointSep{/literal}{$tv}{literal}'
         ,html: '{/literal}{$geotv.pointSepDesc|escape:"javascript"}{literal}'
         ,cls: 'desc-under'
+    },{
+        xtype: 'textfield'
+        ,fieldLabel: '{/literal}{$geotv.decimalSep|escape:"javascript"}{literal}'
+        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.decimalSepDesc|escape:"javascript"}{literal}'
+        ,name: 'prop_decimalSep'
+        ,id: 'prop_decimalSep{/literal}{$tv}{literal}'
+        ,value: params['decimalSep'] || '{/literal}{$geotv_decimal_sep_default|escape:"javascript"}{literal}'
+        ,listeners: oc
+        ,width: '98%'
+    },{
+        xtype: MODx.expandHelp ? 'label' : 'hidden'
+        ,forId: 'prop_decimalSep{/literal}{$tv}{literal}'
+        ,html: '{/literal}{$geotv.decimalSepDesc|escape:"javascript"}{literal}'
+        ,cls: 'desc-under'
     }]
     ,renderTo: 'tv-output-properties-form{/literal}{$tv}{literal}'
 });

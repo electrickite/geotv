@@ -31,3 +31,5 @@ $_lang['geotv.pointTpl'] = 'Template per il punto';
 $_lang['geotv.pointTplDesc'] = 'Nome del chunk da usare come output template del punto';
 $_lang['geotv.pointSep'] = 'Separatore per il punto';
 $_lang['geotv.pointSepDesc'] = 'Stringa che separa i singoli punti';
+$_lang['geotv.decimalSep'] = 'Separatore decimale';
+$_lang['geotv.decimalSepDesc'] = 'Carattere del punto decimale';
