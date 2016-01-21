@@ -1,5 +1,11 @@
 Changelog for GeoTV
 
+GeoTV 1.1.0
+---------------------------------
+  - Added French translation. Credit: Hedy Dargère
+  - Added example to README
+  - Fixed locale number format bug
+
 GeoTV 1.0.0
 ---------------------------------
   - Added geographic point tenplate variable
