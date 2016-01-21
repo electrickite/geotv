@@ -50,6 +50,8 @@ allow you to customize the output.
     latitude and longitude co-ordinates respectively.
   * Point separator: A string used to separate each point. The text will be
     inserted between each set of co-ordinates in the rendered output.
+  * Decimal separator: The character used as a decimal point in latitudes and
+    longitudes. Defaults to the string defined by the system locale.
 
 ### Geographic Point
 
@@ -72,6 +74,8 @@ that allow you to customize the output.
     latitude and longitude co-ordinates respectively.
   * Point separator: A string used to separate each point. The text will be
     inserted between each set of co-ordinates in the rendered output.
+  * Decimal separator: The character used as a decimal point in latitudes and
+    longitudes. Defaults to the string defined by the system locale.
 
 ### Example
 
