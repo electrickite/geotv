@@ -19,8 +19,8 @@ MODx.load({
     ,border: false
     ,items: [{
         xtype: 'textfield'
-        ,fieldLabel: '{/literal}{$geotv.wrapperTpl}{literal}'
-        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.wrapperTplDesc}{literal}'
+        ,fieldLabel: '{/literal}{$geotv.wrapperTpl|escape:"javascript"}{literal}'
+        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.wrapperTplDesc|escape:"javascript"}{literal}'
         ,name: 'prop_wrapperTpl'
         ,id: 'prop_wrapperTpl{/literal}{$tv}{literal}'
         ,value: params['wrapperTpl'] || ''
@@ -29,12 +29,12 @@ MODx.load({
     },{
         xtype: MODx.expandHelp ? 'label' : 'hidden'
         ,forId: 'prop_wrapperTpl{/literal}{$tv}{literal}'
-        ,html: '{/literal}{$geotv.wrapperTplDesc}{literal}'
+        ,html: '{/literal}{$geotv.wrapperTplDesc|escape:"javascript"}{literal}'
         ,cls: 'desc-under'
     },{
         xtype: 'textfield'
-        ,fieldLabel: '{/literal}{$geotv.pointTpl}{literal}'
-        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.pointTplDesc}{literal}'
+        ,fieldLabel: '{/literal}{$geotv.pointTpl|escape:"javascript"}{literal}'
+        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.pointTplDesc|escape:"javascript"}{literal}'
         ,name: 'prop_pointTpl'
         ,id: 'prop_pointTpl{/literal}{$tv}{literal}'
         ,value: params['pointTpl'] || ''
@@ -43,12 +43,12 @@ MODx.load({
     },{
         xtype: MODx.expandHelp ? 'label' : 'hidden'
         ,forId: 'prop_pointTpl{/literal}{$tv}{literal}'
-        ,html: '{/literal}{$geotv.pointTplDesc}{literal}'
+        ,html: '{/literal}{$geotv.pointTplDesc|escape:"javascript"}{literal}'
         ,cls: 'desc-under'
     },{
         xtype: 'textarea'
-        ,fieldLabel: '{/literal}{$geotv.pointSep}{literal}'
-        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.pointSepDesc}{literal}'
+        ,fieldLabel: '{/literal}{$geotv.pointSep|escape:"javascript"}{literal}'
+        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.pointSepDesc|escape:"javascript"}{literal}'
         ,name: 'prop_pointSep'
         ,id: 'prop_pointSep{/literal}{$tv}{literal}'
         ,value: params['pointSep'] || ''
@@ -58,7 +58,21 @@ MODx.load({
     },{
         xtype: MODx.expandHelp ? 'label' : 'hidden'
         ,forId: 'prop_pointSep{/literal}{$tv}{literal}'
-        ,html: '{/literal}{$geotv.pointSepDesc}{literal}'
+        ,html: '{/literal}{$geotv.pointSepDesc|escape:"javascript"}{literal}'
+        ,cls: 'desc-under'
+    },{
+        xtype: 'textfield'
+        ,fieldLabel: '{/literal}{$geotv.decimalSep|escape:"javascript"}{literal}'
+        ,description: MODx.expandHelp ? '' : '{/literal}{$geotv.decimalSepDesc|escape:"javascript"}{literal}'
+        ,name: 'prop_decimalSep'
+        ,id: 'prop_decimalSep{/literal}{$tv}{literal}'
+        ,value: params['decimalSep'] || '{/literal}{$geotv_decimal_sep_default|escape:"javascript"}{literal}'
+        ,listeners: oc
+        ,width: '98%'
+    },{
+        xtype: MODx.expandHelp ? 'label' : 'hidden'
+        ,forId: 'prop_decimalSep{/literal}{$tv}{literal}'
+        ,html: '{/literal}{$geotv.decimalSepDesc|escape:"javascript"}{literal}'
         ,cls: 'desc-under'
     }]
     ,renderTo: 'tv-output-properties-form{/literal}{$tv}{literal}'

@@ -50,6 +50,8 @@ allow you to customize the output.
     latitude and longitude co-ordinates respectively.
   * Point separator: A string used to separate each point. The text will be
     inserted between each set of co-ordinates in the rendered output.
+  * Decimal separator: The character used as a decimal point in latitudes and
+    longitudes. Defaults to the string defined by the system locale.
 
 ### Geographic Point
 
@@ -72,6 +74,56 @@ that allow you to customize the output.
     latitude and longitude co-ordinates respectively.
   * Point separator: A string used to separate each point. The text will be
     inserted between each set of co-ordinates in the rendered output.
+  * Decimal separator: The character used as a decimal point in latitudes and
+    longitudes. Defaults to the string defined by the system locale.
+
+### Example
+
+Suppose you wanted a resource to display an XML reprsentation of a series of
+latitude and longitude co-ordinates. You might create the following elements:
+
+**Template Variable: geopoints**
+
+  * Name: geopoints
+  * Input options
+    * Input Type: Geographic Point
+    * Multiple Values: Yes
+  * Ouput options
+    * Output type: Geographic Point
+    * Wrapper template: geopoints\_wrapper\_tpl
+    * Point template: geopoints\_point\_tpl
+
+**Chunk: geopoints\_wrapper\_tpl**
+
+    <points>
+      [[+points]]
+    </points>
+
+**Chunk: geopoints\_point\_tpl**
+
+    <point>
+      <latitude>[[+latitude]]</latitude>
+      <longitude>[[+longitude]]</longitude>
+    </point>
+
+After adding points using the map on the Template Variables tab, using the
+`[[*geopoints]]` tag in the document content area will produce output similar to
+this:
+
+    <points>
+      <point>
+        <latitude>45.0040</latitude>
+        <longitude>26.0027</longitude>
+      </point>
+      <point>
+        <latitude>76.3465</latitude>
+        <longitude>78.23546</longitude>
+      </point>
+      <point>
+        <latitude>23.6574</latitude>
+        <longitude>67.2984</longitude>
+      </point>
+    </points>
 
 Contributing
 ------------
