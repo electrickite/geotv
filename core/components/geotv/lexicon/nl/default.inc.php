@@ -15,11 +15,11 @@ $_lang['geotv.clear'] = 'Verwijder alle markeringen';
 $_lang['geotv.allowMultiple'] = 'Meerdere markeringen toestaan';
 $_lang['geotv.allowMultipleDesc'] = 'Sta toe om meerdere markeringen op te geven';
 $_lang['geotv.centerLat'] = 'Standaard breedtegraad';
-$_lang['geotv.centerLatDesc'] = 'De breedtegraad waar de kaart standaard op wordt gecentreerd (in decimale graden, bijv.: 45.0040)';
+$_lang['geotv.centerLatDesc'] = 'De breedtegraad waar de kaart standaard op wordt gecentreerd (in decimale graden, bijv.: 39.0027)';
 $_lang['geotv.centerLng'] = 'Standaard lengtegraad';
-$_lang['geotv.centerLngDesc'] = 'De lengtegraad waar de kaart standaard op wordt gecentreerd (in decimale graden, bijv.: 26.0027)';
+$_lang['geotv.centerLngDesc'] = 'De lengtegraad waar de kaart standaard op wordt gecentreerd (in decimale graden, bijv.: -95.1234567)';
 $_lang['geotv.zoom'] = 'Standaard zoomniveau';
-$_lang['geotv.zoomDesc'] = 'Het niveau waar de kaart standaard op wordt ingezoomd';
+$_lang['geotv.zoomDesc'] = 'Un nombre de 1 (faible) à 30 (haut) indiquant le niveau de zoom de la carte par défaut. De nombreuses régions du monde ne disposent pas de données de carte au dessus du niveau de zoom 20.';
 
 $_lang['geotv.wrapperTpl'] = 'Wrapper template';
 $_lang['geotv.wrapperTplDesc'] = 'Naam van de chunk die gebruikt wordt voor de output wrapper';

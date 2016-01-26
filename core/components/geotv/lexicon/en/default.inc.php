@@ -15,11 +15,11 @@ $_lang['geotv.clear'] = 'Clear all locations';
 $_lang['geotv.allowMultiple'] = 'Multiple values';
 $_lang['geotv.allowMultipleDesc'] = 'Allow user to enter multiple values for this field';
 $_lang['geotv.centerLat'] = 'Default latitude';
-$_lang['geotv.centerLatDesc'] = 'The default latitude of the map center (in decimal degrees)';
+$_lang['geotv.centerLatDesc'] = 'The default latitude of the map center (in decimal degrees, e.g. 39.0027)';
 $_lang['geotv.centerLng'] = 'Default longitude';
-$_lang['geotv.centerLngDesc'] = 'The default longitude of the map center (in decimal degrees)';
+$_lang['geotv.centerLngDesc'] = 'The default longitude of the map center (in decimal degrees, e.g. -95.1234567)';
 $_lang['geotv.zoom'] = 'Default zoom';
-$_lang['geotv.zoomDesc'] = 'The default map zoom level';
+$_lang['geotv.zoomDesc'] = 'A number from 1 (low) to 30 (high) indicating the default map zoom level. Many areas of the world do not have map data above zoom level 20.';
 
 $_lang['geotv.wrapperTpl'] = 'Wrapper template';
 $_lang['geotv.wrapperTplDesc'] = 'Name of the chunk to use as an output wrapper';

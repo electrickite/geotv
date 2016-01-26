@@ -15,11 +15,11 @@ $_lang['geotv.clear'] = 'Supprimer les points ou les zones géolocalisées';
 $_lang['geotv.allowMultiple'] = 'Valeurs multiples';
 $_lang['geotv.allowMultipleDesc'] = 'Autoriser l\'utilisateur à entrer plusieurs valeurs pour ce champ';
 $_lang['geotv.centerLat'] = 'Latitude par défaut';
-$_lang['geotv.centerLatDesc'] = 'La latitude par défaut du centre de la carte (en degrés décimaux, par exemple 42.1234567)';
+$_lang['geotv.centerLatDesc'] = 'La latitude par défaut du centre de la carte (en degrés décimaux, par exemple 39.0027)';
 $_lang['geotv.centerLng'] = 'Longitude par défaut';
-$_lang['geotv.centerLngDesc'] = 'La longitude par défaut du centre de la carte (en degrés décimaux, par exemple 1.2345678)';
+$_lang['geotv.centerLngDesc'] = 'La longitude par défaut du centre de la carte (en degrés décimaux, par exemple -95.1234567)';
 $_lang['geotv.zoom'] = 'Zoom par défaut';
-$_lang['geotv.zoomDesc'] = 'Le niveau de zoom par défaut de la carte';
+$_lang['geotv.zoomDesc'] = 'Un nombre de 1 (faible) à 30 (haut) indiquant le niveau de zoom de la carte par défaut. De nombreuses régions du monde ne disposent pas de données de carte au dessus du niveau de zoom 20.';
 
 $_lang['geotv.wrapperTpl'] = 'Template du wrapper';
 $_lang['geotv.wrapperTplDesc'] = 'Nom du chunk à utiliser comme template de sortie pour le wrapper';

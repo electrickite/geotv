@@ -15,11 +15,11 @@ $_lang['geotv.clear'] = 'Elimina tutte le location';
 $_lang['geotv.allowMultiple'] = 'Valori multipli';
 $_lang['geotv.allowMultipleDesc'] = 'Permetti all\'utente di specificare valori multipli per questo campo';
 $_lang['geotv.centerLat'] = 'Latitudine di default';
-$_lang['geotv.centerLatDesc'] = 'La latitudine di default del centro della mappa (in gradi decimali)';
+$_lang['geotv.centerLatDesc'] = 'La latitudine di default del centro della mappa (in gradi decimali, ad esempio, 39.0027)';
 $_lang['geotv.centerLng'] = 'Longitudine di default';
-$_lang['geotv.centerLngDesc'] = 'La longitudine di default del centro della mappa (in gradi decimali)';
+$_lang['geotv.centerLngDesc'] = 'La longitudine di default del centro della mappa (in gradi decimali, per esempio -95,1234567)';
 $_lang['geotv.zoom'] = 'Zoom di default';
-$_lang['geotv.zoomDesc'] = 'Il livello di default dello zoom';
+$_lang['geotv.zoomDesc'] = 'Un numero da 1 (basso) a 30 (alto) che indica il livello di zoom della mappa predefinita. Molte aree del mondo non hanno dati della mappa sul livello di zoom 20.';
 
 $_lang['geotv.wrapperTpl'] = 'Template wrapper';
 $_lang['geotv.wrapperTplDesc'] = 'Nome del chunk da usare come output wrapper';
