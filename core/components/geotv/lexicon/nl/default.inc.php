@@ -19,7 +19,7 @@ $_lang['geotv.centerLatDesc'] = 'De breedtegraad waar de kaart standaard op word
 $_lang['geotv.centerLng'] = 'Standaard lengtegraad';
 $_lang['geotv.centerLngDesc'] = 'De lengtegraad waar de kaart standaard op wordt gecentreerd (in decimale graden, bijv.: -95.1234567)';
 $_lang['geotv.zoom'] = 'Standaard zoomniveau';
-$_lang['geotv.zoomDesc'] = 'Un nombre de 1 (faible) à 30 (haut) indiquant le niveau de zoom de la carte par défaut. De nombreuses régions du monde ne disposent pas de données de carte au dessus du niveau de zoom 20.';
+$_lang['geotv.zoomDesc'] = 'Het niveau waar de kaart standaard op wordt ingezoomd. Dit dient een getal tussen 1 en 30 te zijn, waarbij 1 helemaal uitgezoomd is. In veel gebieden kan niet verder worden ingezoomd dan 20.';
 
 $_lang['geotv.wrapperTpl'] = 'Wrapper template';
 $_lang['geotv.wrapperTplDesc'] = 'Naam van de chunk die gebruikt wordt voor de output wrapper';
