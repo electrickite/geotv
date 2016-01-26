@@ -17,3 +17,6 @@ Icon
 Thumbs.db
 ehthumbs.db
 $RECYCLE.BIN/
+
+# Sublime text files
+*.sublime-*
