@@ -89,15 +89,15 @@ If the PR contains several commits or gets too outdated we may ask you to rebase
 and force push to update the PR. In this case, use the git interactive rebase
 command:
 
-    ```shell
-    git fetch upstream
-    git checkout my-fix-branch
-    git rebase master -i
-
-    # Squash all but the latest commit. Create a new descriptive commit message
-
-    git push origin my-fix-branch -f
-    ```
+  ```shell
+  git fetch upstream
+  git checkout my-fix-branch
+  git rebase master -i
+  
+  # Squash all but the latest commit. Create a new descriptive commit message
+  
+  git push origin my-fix-branch -f
+  ```
 
 Once you push, the Pull Request will auto-update and will only contain your
 single, squashed commit.
