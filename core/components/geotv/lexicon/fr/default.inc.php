@@ -9,6 +9,8 @@ $_lang['geotv'] = 'GeoTV';
 $_lang['geotv_geofence'] = 'Zone Géographique';
 $_lang['geotv_geopoint'] = 'Point Géographique';
 
+$_lang['area_maps'] = 'Plans';
+
 $_lang['geotv.loading'] = 'Patientez, la carte se charge...';
 $_lang['geotv.clear'] = 'Supprimer les points ou les zones géolocalisées';
 
@@ -33,3 +35,6 @@ $_lang['geotv.pointSep'] = 'Séparateur de points';
 $_lang['geotv.pointSepDesc'] = 'Caractère de séparation des différents points individuels dans le cas d\'emplacements multiples';
 $_lang['geotv.decimalSep'] = 'Séparateur décimal';
 $_lang['geotv.decimalSepDesc'] = 'Séparateur décimal à utiliser dans la génération de la latitude et de la longitude';
+
+$_lang['setting_geotv.api_key'] = 'Clé API';
+$_lang['setting_geotv.api_key_desc'] = 'Google Maps clé API';

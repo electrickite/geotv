@@ -17,6 +17,8 @@ Use
 
 GeoTV provides two new TV types, Geographic Area and Geographic Point.
 
+First, configure your Google Maps API key in System Settings.
+
 Once a TV has been created, add it to a template. The template variables tab
 of a resource using the template will contain a map centered at the location
 specified in the TV input options. New locations can be created with the draw

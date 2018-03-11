@@ -1,5 +1,9 @@
 Changelog for GeoTV
 
+GeoTV 1.3.0
+---------------------------------
+  - Add Google Maps API key setting
+
 GeoTV 1.2.0
 ---------------------------------
   - Added Italian translation. Credit: Alessandro Chinazzo

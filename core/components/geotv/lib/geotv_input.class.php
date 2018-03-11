@@ -8,6 +8,7 @@ if(!class_exists('GeoTVInputRender')) {
             $params['centerLat'] = json_encode(floatval($this->modx->getOption('centerLat', $params, 39, true)));
             $params['centerLng'] = json_encode(floatval($this->modx->getOption('centerLng', $params, -95, true)));
             $params['zoom'] = json_encode(intval($this->modx->getOption('zoom', $params, 3, true)));
+            $params['apiKey'] = urlencode($this->modx->getOption('geotv.api_key'));
 
             $lang = $this->modx->lexicon->fetch('geotv.', true);
             $this->modx->smarty->assign('geotv', $lang);

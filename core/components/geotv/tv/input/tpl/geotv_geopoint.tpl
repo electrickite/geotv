@@ -5,7 +5,7 @@
 <script type="text/javascript">
   // only load Google Maps API if not loaded
   if (!window.google || !window.google.maps) {
-    document.write('<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=drawing"><\/script>');
+    document.write('<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=drawing&key={$params.apiKey}"><\/script>');
   }
 </script>
 

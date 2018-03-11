@@ -9,6 +9,8 @@ $_lang['geotv'] = 'GeoTV';
 $_lang['geotv_geofence'] = 'Geografisch gebied';
 $_lang['geotv_geopoint'] = 'Geografisch punt';
 
+$_lang['area_maps'] = 'Kaarten';
+
 $_lang['geotv.loading'] = 'Een ogenblik geduld, de kaart wordt geladen...';
 $_lang['geotv.clear'] = 'Verwijder alle markeringen';
 
@@ -33,3 +35,6 @@ $_lang['geotv.pointSep'] = 'Scheidingsteken geografisch punt';
 $_lang['geotv.pointSepDesc'] = 'Het scheidingsteken dat gebruikt wordt om afzonderlijke punten te scheiden';
 $_lang['geotv.decimalSep'] = 'Decimaalscheidingsteken';
 $_lang['geotv.decimalSepDesc'] = 'Het scheidingsteken dat gebruikt wordt in decimalen';
+
+$_lang['setting_geotv.api_key'] = 'API Sleutel';
+$_lang['setting_geotv.api_key_desc'] = 'Google Maps API Sleutel';
