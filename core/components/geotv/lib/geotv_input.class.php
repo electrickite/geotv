@@ -4,7 +4,7 @@ if(!class_exists('GeoTVInputRender')) {
         public function process($value,array $params = array()) {
             $multiple = $this->modx->getOption('allowMultiple', $params, 1, true);
 
-            $params['allowMultiple'] = ($multiple === 0 || $multiple === 'false') ? 0 : 1;
+            $params['allowMultiple'] = ($multiple == 1 ) ? 1 : 0;
             $params['centerLat'] = json_encode(floatval($this->modx->getOption('centerLat', $params, 39, true)));
             $params['centerLng'] = json_encode(floatval($this->modx->getOption('centerLng', $params, -95, true)));
             $params['zoom'] = json_encode(intval($this->modx->getOption('zoom', $params, 3, true)));
