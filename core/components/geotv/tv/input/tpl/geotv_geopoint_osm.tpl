@@ -103,8 +103,8 @@ console.log("initialize");
     MODx.fireResourceFormChange();
 
     tv{$tv->id}Data.zoom = tv{$tv->id}Map.getZoom();
-    tv{$tv->id}Data.lat = tv{$tv->id}Map.getCenter().lat();
-    tv{$tv->id}Data.lng = tv{$tv->id}Map.getCenter().lng();
+    tv{$tv->id}Data.lat = tv{$tv->id}Map.center().lat();
+    tv{$tv->id}Data.lng = tv{$tv->id}Map.center().lng();
 
     var jsonData = JSON.stringify(tv{$tv->id}Data);
 
