@@ -73,11 +73,19 @@ console.log("initialize");
   {literal}
        var point = {lat: points[i].lat, lng: points[i].lng};
    {/literal}
-       tv{$tv->id}Markers.push( new L.marker(point).addTo( tv{$tv->id}Map) );
+       tv{$tv->id}Markers.push( new L.marker(point,
+       {literal}
+       {draggable: true}
+       {/literal}
+       ).addTo( tv{$tv->id}Map) );
   }
 
   tv{$tv->id}Map.on('click', function(e){
-    marker = new L.marker(e.latlng).addTo(tv{$tv->id}Map);
+    marker = new L.marker(e.latlng,
+  {literal}
+    { draggable: true}
+  {/literal}
+    ).addTo(tv{$tv->id}Map);
   {literal}
     var point = {lat: e.latlng.lat, lng: e.latlng.lng};
   {/literal}
