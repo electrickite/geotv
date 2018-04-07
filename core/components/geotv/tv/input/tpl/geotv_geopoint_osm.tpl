@@ -30,6 +30,7 @@ var tv{$tv->id}EventAdded = false;
 var tv{$tv->id}Map;
 var tv{$tv->id}Input;
 var tv{$tv->id}Data;
+var tv{$tv->id}Markers = new Array();
 
 function initializeGlobalsTV{$tv->id}() {
   tv{$tv->id}Input = document.getElementById("tv{$tv->id}");
@@ -49,12 +50,16 @@ function initializeGlobalsTV{$tv->id}() {
 }
 
 function initializeMapTV{$tv->id}() {
+console.log("initialize");
+    removeMarkers();
 
-  tv{$tv->id}Map = L.map('tv{$tv->id}-map-canvas').setView([
-                             tv{$tv->id}params.centerLat,
-                             tv{$tv->id}params.centerLng ],
-                             tv{$tv->id}params.zoom
-                             );
+  if( typeof(tv{$tv->id}Map) == "undefined" )
+      tv{$tv->id}Map = L.map('tv{$tv->id}-map-canvas').setView([
+                                 tv{$tv->id}params.centerLat,
+                                 tv{$tv->id}params.centerLng ],
+                                 tv{$tv->id}params.zoom
+                                 );
+    console.log("init after");
     {literal}
      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -62,14 +67,13 @@ function initializeMapTV{$tv->id}() {
     {/literal}
     .addTo(tv{$tv->id}Map);
 
-  var markers = new Array();
   var points = tv{$tv->id}Data.points;
 
   for(i=0; i<points.length; i++) {
   {literal}
        var point = {lat: points[i].lat, lng: points[i].lng};
    {/literal}
-       markers.push( new L.marker(point).addTo( tv{$tv->id}Map) );
+       tv{$tv->id}Markers.push( new L.marker(point).addTo( tv{$tv->id}Map) );
   }
 
   tv{$tv->id}Map.on('click', function(e){
@@ -82,11 +86,11 @@ function initializeMapTV{$tv->id}() {
     if (tv{$tv->id}params.allowMultiple) {
       tv{$tv->id}Data.points.push(point);
     } else {
-      setAllMarkerMaps(null);
+      removeMarkers();
       tv{$tv->id}Data.points = [point];
     }
 
-    markers.push(marker);
+    tv{$tv->id}Markers.push(marker);
     tv{$tv->id}Input.value = JSON.stringify(tv{$tv->id}Data);
     MODx.fireResourceFormChange();
 
@@ -107,9 +111,9 @@ function initializeMapTV{$tv->id}() {
     }
   }); // END on mapclick
 
-  function setAllMarkerMaps(value) {
-    for (var i = 0; i < markers.length; i++) {
-        var marker=markers[i];
+  function removeMarkers() {
+    for (var i = 0; i < tv{$tv->id}Markers.length; i++) {
+        var marker=tv{$tv->id}Markers[i];
         if (typeof marker != "undefined") {
             tv{$tv->id}Map.removeLayer(marker);
         }
@@ -152,10 +156,8 @@ Ext.onReady(function() {
     Ext.getCmp('modx-panel-resource').getForm().add(fld);
     {/literal}
 
-console.log('before init');
     initializeGlobalsTV{$tv->id}();
     initializeMapTV{$tv->id}();
-console.log('after init');
 
     var mainTabs = Ext.getCmp("modx-resource-tabs");
     mainTabs.on('tabchange', function(parent,selectedTab){
