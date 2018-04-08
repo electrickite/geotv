@@ -32,6 +32,32 @@ var tv{$tv->id}Input;
 var tv{$tv->id}Data;
 var tv{$tv->id}Markers = new Array();
 
+/**
+ * Return marker with that
+ *   - popups help on mouse over
+ *   - removes at clikc
+ *   - moves at drag
+ */
+function newMarker(map, latlng){
+       return new L.marker(latlng,
+{literal}
+       {draggable: true}
+{/literal}
+       )
+       .bindPopup('Click to remove</br>Drag to move')
+       .on('click', function(e){
+           tv{$tv->id}Map.removeLayer(this);
+           }
+       )
+       .on('mouseout', function(e){
+          this.closePopup();
+       })
+       .on('mouseover', function(e){
+          this.openPopup();
+       })
+       .addTo( map );
+}
+
 function initializeGlobalsTV{$tv->id}() {
   tv{$tv->id}Input = document.getElementById("tv{$tv->id}");
   try {
@@ -60,41 +86,27 @@ console.log("initialize");
                                  tv{$tv->id}params.zoom
                                  );
     console.log("init after");
-    {literal}
+{literal}
      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     })
-    {/literal}
+{/literal}
     .addTo(tv{$tv->id}Map);
 
   var points = tv{$tv->id}Data.points;
 
   for(i=0; i<points.length; i++) {
-  {literal}
+{literal}
        var point = {lat: points[i].lat, lng: points[i].lng};
-   {/literal}
-       tv{$tv->id}Markers.push( new L.marker(point,
-       {literal}
-       {draggable: true}
-       {/literal}
-       ).on('click', function(e){
-           tv{$tv->id}Map.removeLayer(this);
-           }
-       ).addTo( tv{$tv->id}Map) );
-}
+{/literal}
+       tv{$tv->id}Markers.push( newMarker( tv{$tv->id}Map, point) );
+  }
 
   tv{$tv->id}Map.on('click', function(e){
-    marker = new L.marker(e.latlng,
-  {literal}
-    { draggable: true}
-  {/literal}
-       ).on('click', function(e){
-           tv{$tv->id}Map.removeLayer(this);
-           }
-       ).addTo( tv{$tv->id}Map);
-  {literal}
+    marker = newMarker(tv{$tv->id}Map, e.latlng);
+{literal}
     var point = {lat: e.latlng.lat, lng: e.latlng.lng};
-  {/literal}
+{/literal}
 
 
     if (tv{$tv->id}params.allowMultiple) {
