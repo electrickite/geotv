@@ -76,7 +76,6 @@ function initializeGlobalsTV{$tv->id}() {
 }
 
 function initializeMapTV{$tv->id}() {
-console.log("initialize");
     removeMarkers();
 
   if( typeof(tv{$tv->id}Map) == "undefined" )
@@ -85,7 +84,6 @@ console.log("initialize");
                                  tv{$tv->id}params.centerLng ],
                                  tv{$tv->id}params.zoom
                                  );
-    console.log("init after");
 {literal}
      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -121,8 +119,8 @@ console.log("initialize");
     MODx.fireResourceFormChange();
 
     tv{$tv->id}Data.zoom = tv{$tv->id}Map.getZoom();
-    tv{$tv->id}Data.lat = tv{$tv->id}Map.center().lat();
-    tv{$tv->id}Data.lng = tv{$tv->id}Map.center().lng();
+    tv{$tv->id}Data.lat = tv{$tv->id}Map.getCenter().lat;
+    tv{$tv->id}Data.lng = tv{$tv->id}Map.getCenter().lng;
 
     var jsonData = JSON.stringify(tv{$tv->id}Data);
 
@@ -164,7 +162,6 @@ function clearGeoTV{$tv->id}() {
 
 {literal}
 Ext.onReady(function() {
-    console.log('before load');
     var fld = MODx.load({
     {/literal}
         xtype: 'textarea'
