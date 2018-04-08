@@ -14,6 +14,7 @@ $_lang['area_maps'] = 'Maps';
 $_lang['geotv.loading'] = 'Please wait. Loading map...';
 $_lang['geotv.clear'] = 'Clear all locations';
 
+$_lang['geotv.markerHelp'] = 'Drag to move</br>Clic to remove';
 $_lang['geotv.allowMultiple'] = 'Multiple values';
 $_lang['geotv.allowMultipleDesc'] = 'Allow user to enter multiple values for this field';
 $_lang['geotv.centerLat'] = 'Default latitude';

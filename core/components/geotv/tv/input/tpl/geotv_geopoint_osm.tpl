@@ -44,7 +44,7 @@ function newMarker(map, latlng){
        {draggable: true}
 {/literal}
        )
-       .bindPopup('Click to remove</br>Drag to move')
+       .bindPopup("{$geotv.markerHelp}")
        .on('click', function(e){
            tv{$tv->id}Map.removeLayer(this);
            }

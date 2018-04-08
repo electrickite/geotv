@@ -14,6 +14,7 @@ $_lang['area_maps'] = 'Plans';
 $_lang['geotv.loading'] = 'Patientez, la carte se charge...';
 $_lang['geotv.clear'] = 'Supprimer les points ou les zones géolocalisées';
 
+$_lang['geotv.markerHelp'] = 'Glisser pour déplacer</br>Cliquer pour effacer';
 $_lang['geotv.allowMultiple'] = 'Valeurs multiples';
 $_lang['geotv.allowMultipleDesc'] = 'Autoriser l\'utilisateur à entrer plusieurs valeurs pour ce champ';
 $_lang['geotv.centerLat'] = 'Latitude par défaut';
