@@ -114,6 +114,36 @@ function initializeMapTV{$tv->id}() {
         tv{$tv->id}Map.addControl( tv{$tv->id}DrawCtrl );
     }
 
+    // From https://github.com/Leaflet/Leaflet.draw/blob/master/src/Leaflet.draw.js
+
+    L.drawLocal.draw.handlers.polygon.tooltip.start = '{$geotv.draw_startpoly}';
+    L.drawLocal.draw.handlers.polygon.tooltip.cont = '{$geotv.draw_nextpoly}';
+    L.drawLocal.draw.handlers.polygon.tooltip.end = '{$geotv.draw_endpoly}';
+
+    L.drawLocal.draw.toolbar.actions.text = '{$geotv.draw_toolbarcancel}';
+    L.drawLocal.draw.toolbar.actions.title = '{$geotv.draw_toolbarcanceltitle}';
+    L.drawLocal.draw.toolbar.finish.text = '{$geotv.draw_toolbarfinish}';
+    L.drawLocal.draw.toolbar.finish.title = '{$geotv.draw_toolbarfinishtitle}';
+    L.drawLocal.draw.toolbar.undo.text = '{$geotv.draw_toolbarundo}';
+    L.drawLocal.draw.toolbar.undo.title = '{$geotv.draw_toolbarundotitle}';
+
+    L.drawLocal.draw.toolbar.buttons.polygon = '{$geotv.draw_polybutton}';
+
+    L.drawLocal.edit.handlers.edit.tooltip.text = '{$geotv.draw_handlertext}';
+    L.drawLocal.edit.handlers.edit.tooltip.subtext = '{$geotv.draw_handlersubtext}';
+
+    L.drawLocal.edit.toolbar.buttons.edit = '{$geotv.draw_layersedit}';
+    L.drawLocal.edit.toolbar.buttons.editDisabled = '{$geotv.draw_layerseditdisabled}';
+    L.drawLocal.edit.toolbar.buttons.remove = '{$geotv.draw_layersremove}';
+    L.drawLocal.edit.toolbar.buttons.removeDisabled = '{$geotv.draw_layersremovedisabled}';
+    L.drawLocal.edit.toolbar.actions.save.text = '{$geotv.draw_layerssave}';
+    L.drawLocal.edit.toolbar.actions.save.title = '{$geotv.draw_layerssavetitle}';
+    L.drawLocal.edit.toolbar.actions.cancel.text = '{$geotv.draw_layerscancel}';
+    L.drawLocal.edit.toolbar.actions.cancel.title = '{$geotv.draw_layerscanceltitle}';
+    L.drawLocal.edit.toolbar.actions.clearAll.text = '{$geotv.draw_layersclearall}';
+    L.drawLocal.edit.toolbar.actions.clearAll.title = '{$geotv.draw_layersclearalltitle}';
+
+
     // ENDOF Map Drawing Tools
 
 
