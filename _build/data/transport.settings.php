@@ -19,7 +19,7 @@ $settings[1]->fromArray(array(
 
 $settings[2]= $modx->newObject('modSystemSetting');
 $settings[2]->fromArray(array(
-    'key' => 'geotv.allow_osm',
+    'key' => 'geotv.enable_osm',
     'value' => true,
     'xtype' => 'combo-boolean',
     'namespace' => 'geotv',

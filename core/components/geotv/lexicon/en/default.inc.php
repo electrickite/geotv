@@ -69,5 +69,5 @@ $_lang['geotv.decimalSepDesc'] = 'Decimal point character';
 
 $_lang['setting_geotv.api_key'] = 'API Key';
 $_lang['setting_geotv.api_key_desc'] = 'Google Maps API Key';
-$_lang['setting_geotv.allow_osm'] = 'OSM Switch';
-$_lang['setting_geotv.allow_osm_desc'] = 'Set OpenStreetMap as default map';
+$_lang['setting_geotv.enable_osm'] = 'OSM Switch';
+$_lang['setting_geotv.enable_osm_desc'] = 'Set OpenStreetMap as default map';

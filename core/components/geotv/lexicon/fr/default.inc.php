@@ -68,5 +68,5 @@ $_lang['geotv.decimalSepDesc'] = 'Séparateur décimal à utiliser dans la gén�
 
 $_lang['setting_geotv.api_key'] = 'Clé API';
 $_lang['setting_geotv.api_key_desc'] = 'Google Maps clé API';
-$_lang['setting_geotv.allow_osm'] = 'Sélecteur OSM';
-$_lang['setting_geotv.allow_osm_desc'] = 'Activation de la carte de fond OpenStreetMap';
+$_lang['setting_geotv.enable_osm'] = 'Sélecteur OSM';
+$_lang['setting_geotv.enable_osm_desc'] = 'Activation de la carte de fond OpenStreetMap';
