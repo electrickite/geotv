@@ -13,8 +13,8 @@ set_time_limit(0);
 /* define package names */
 define('PKG_NAME', 'GeoTV');
 define('PKG_NAME_LOWER', 'geotv');
-define('PKG_VERSION', '1.3.0');
-define('PKG_RELEASE', 'pl');
+define('PKG_VERSION', '1.4.0');
+define('PKG_RELEASE', 'rc2');
 
 /* define build paths */
 $root = dirname(dirname(__FILE__)) . '/';
