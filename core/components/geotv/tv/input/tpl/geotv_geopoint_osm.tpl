@@ -84,6 +84,7 @@ function initializeMapTV{$tv->id}() {
                                  tv{$tv->id}params.centerLng ],
                                  tv{$tv->id}params.zoom
                                  );
+ tv{$tv->id}Map.getPane('mapPane').style.zIndex=0;
 {literal}
      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

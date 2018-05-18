@@ -64,6 +64,7 @@ function initializeMapTV{$tv->id}() {
                                  tv{$tv->id}params.centerLng ],
                                  tv{$tv->id}params.zoom
                                  );
+ tv{$tv->id}Map.getPane('mapPane').style.zIndex=0;
     // Insert background tiles layer
 {literal}
      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
