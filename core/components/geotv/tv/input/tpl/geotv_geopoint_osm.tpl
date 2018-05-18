@@ -30,7 +30,6 @@ var tv{$tv->id}EventAdded = false;
 var tv{$tv->id}Map;
 var tv{$tv->id}Input;
 var tv{$tv->id}Data;
-var tv{$tv->id}Markers = new Array();
 var tv{$tv->id}FeatureGroup;
 
 /**
@@ -46,10 +45,13 @@ function newMarker(featureGroup, latlng){
 {/literal}
        )
        .bindPopup("{$geotv.markerHelp}")
-       .on('click', function(e){
+       .on('click', function(e){ // erase point
            featureGroup.removeLayer(this);
-           }
-       )
+           featureGroupToData();
+       })
+       .on('dragend', function(e){ // save point after moved
+            featureGroupToData();
+       })
        .on('mouseout', function(e){
           this.closePopup();
        })
@@ -114,36 +116,56 @@ function initializeMapTV{$tv->id}() {
        var point = {lat: points[i].lat, lng: points[i].lng};
 {/literal}
 // 3- and save in new table 
-       tv{$tv->id}Markers.push( newMarker( tv{$tv->id}FeatureGroup, point) );
+        newMarker( tv{$tv->id}FeatureGroup, point);
   }
 
 // WHAT to do if map clicked
 // -------------------------
 
   tv{$tv->id}Map.on('click', function(e){
-// 1- adds new point
-    marker = newMarker(tv{$tv->id}FeatureGroup, e.latlng);
-{literal}
-    var point = {lat: e.latlng.lat, lng: e.latlng.lng};
-{/literal}
-
-
-// 2- then add to Datapoints for future saving
-    if (tv{$tv->id}params.allowMultiple) {
-      tv{$tv->id}Data.points.push(point);
-    } else {
+    // 0- remove if not multiple
+    if ( ! tv{$tv->id}params.allowMultiple) {
       removeMarkers();
-      tv{$tv->id}Data.points = [point];
     }
-    tv{$tv->id}Markers.push(marker);
+    // 1- add new point
+    newMarker(tv{$tv->id}FeatureGroup, e.latlng);
+
+
+    // 2- then add to Datapoints for future saving
+    featureGroupToData();
+
+  }); // END on mapclick
+
+  // Center map on contained points
+  tv{$tv->id}Map.fitBounds( tv{$tv->id}FeatureGroup.getBounds() );
+} // end of initializeMapTV
+
+// Just remove markers from map.
+// Modx Data  update is done else where
+function removeMarkers() {
+    if( typeof(tv{$tv->id}FeatureGroup) == "undefined" )
+        return;
+    tv{$tv->id}FeatureGroup.eachLayer(function(l){
+        tv{$tv->id}FeatureGroup.removeLayer(l);
+    });
+}
+
+function featureGroupToData()
+{
+      // reset data
+      tv{$tv->id}Data.points = [];
+
+      // refresh data
+      tv{$tv->id}FeatureGroup.eachLayer(function(e){
+        {literal}
+            var point = {lat: e._latlng.lat, lng: e._latlng.lng};
+        {/literal}
+          tv{$tv->id}Data.points.push(point);
+          });
 
 // 3- ready to save in form
     tv{$tv->id}Input.value = JSON.stringify(tv{$tv->id}Data);
     MODx.fireResourceFormChange();
-
-    tv{$tv->id}Data.zoom = tv{$tv->id}Map.getZoom();
-    tv{$tv->id}Data.lat = tv{$tv->id}Map.getCenter().lat;
-    tv{$tv->id}Data.lng = tv{$tv->id}Map.getCenter().lng;
 
     var jsonData = JSON.stringify(tv{$tv->id}Data);
 
@@ -156,18 +178,7 @@ function initializeMapTV{$tv->id}() {
       tv{$tv->id}Input.value = jsonData;
       MODx.fireResourceFormChange();
     }
-  }); // END on mapclick
-
-  function removeMarkers() {
-    for (var i = 0; i < tv{$tv->id}Markers.length; i++) {
-        var marker=tv{$tv->id}Markers[i];
-        if (typeof marker != "undefined") {
-            tv{$tv->id}Map.removeLayer(marker);
-        }
-    }
-  }
-  tv{$tv->id}Map.fitBounds( tv{$tv->id}FeatureGroup.getBounds() );
-} // end of initializeMapTV
+}
 
 function resetMap(m) {
    //TODO:
@@ -181,7 +192,8 @@ function clearGeoTV{$tv->id}() {
   document.getElementById('tv{$tv->id}').value = "";
   initializeGlobalsTV{$tv->id}();
   initializeMapTV{$tv->id}();
-  MODx.fireResourceFormChange();
+  removeMarkers();
+  featureGroupToData()
 }
 
 {literal}
