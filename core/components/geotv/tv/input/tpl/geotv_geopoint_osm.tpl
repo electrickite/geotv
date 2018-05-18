@@ -138,6 +138,7 @@ function initializeMapTV{$tv->id}() {
 
   // Center map on contained points
   tv{$tv->id}Map.fitBounds( tv{$tv->id}FeatureGroup.getBounds() );
+ setTimeout(function(){ tv{$tv->id}Map.invalidateSize()}, 1000);
 } // end of initializeMapTV
 
 // Just remove markers from map.

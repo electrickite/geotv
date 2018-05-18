@@ -262,6 +262,7 @@ function initializeMapTV{$tv->id}() {
     // reset internal storing
     tv{$tv->id}Polygons = new Array()
   }
+ setTimeout(function(){ tv{$tv->id}Map.invalidateSize()}, 1500);
 } //endof initializeMapTV
 
 function resetMap(m) {
