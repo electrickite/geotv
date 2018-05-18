@@ -31,6 +31,7 @@ var tv{$tv->id}Map;
 var tv{$tv->id}Input;
 var tv{$tv->id}Data;
 var tv{$tv->id}Markers = new Array();
+var tv{$tv->id}FeatureGroup;
 
 /**
  * Return marker with that
@@ -38,7 +39,7 @@ var tv{$tv->id}Markers = new Array();
  *   - removes at clikc
  *   - moves at drag
  */
-function newMarker(map, latlng){
+function newMarker(featureGroup, latlng){
        return new L.marker(latlng,
 {literal}
        {draggable: true}
@@ -46,7 +47,7 @@ function newMarker(map, latlng){
        )
        .bindPopup("{$geotv.markerHelp}")
        .on('click', function(e){
-           tv{$tv->id}Map.removeLayer(this);
+           featureGroup.removeLayer(this);
            }
        )
        .on('mouseout', function(e){
@@ -55,7 +56,7 @@ function newMarker(map, latlng){
        .on('mouseover', function(e){
           this.openPopup();
        })
-       .addTo( map );
+       .addTo( featureGroup );
 }
 
 function initializeGlobalsTV{$tv->id}() {
@@ -79,12 +80,21 @@ function initializeMapTV{$tv->id}() {
     removeMarkers();
 
   if( typeof(tv{$tv->id}Map) == "undefined" )
+  {
       tv{$tv->id}Map = L.map('tv{$tv->id}-map-canvas').setView([
                                  tv{$tv->id}params.centerLat,
                                  tv{$tv->id}params.centerLng ],
                                  tv{$tv->id}params.zoom
                                  );
+   }
+  if( typeof(tv{$tv->id}FeatureGroup) == "undefined" )
+  {
+   tv{$tv->id}FeatureGroup = L.featureGroup(); //TODO: use this for all points deletion
+   tv{$tv->id}FeatureGroup.addTo(tv{$tv->id}Map);
+   }
+
  tv{$tv->id}Map.getPane('mapPane').style.zIndex=0;
+
 {literal}
      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -98,11 +108,11 @@ function initializeMapTV{$tv->id}() {
 {literal}
        var point = {lat: points[i].lat, lng: points[i].lng};
 {/literal}
-       tv{$tv->id}Markers.push( newMarker( tv{$tv->id}Map, point) );
+       tv{$tv->id}Markers.push( newMarker( tv{$tv->id}FeatureGroup, point) );
   }
 
   tv{$tv->id}Map.on('click', function(e){
-    marker = newMarker(tv{$tv->id}Map, e.latlng);
+    marker = newMarker(tv{$tv->id}FeatureGroup, e.latlng);
 {literal}
     var point = {lat: e.latlng.lat, lng: e.latlng.lng};
 {/literal}
@@ -144,7 +154,8 @@ function initializeMapTV{$tv->id}() {
         }
     }
   }
-}
+  tv{$tv->id}Map.fitBounds( tv{$tv->id}FeatureGroup.getBounds() );
+} // end of initializeMapTV
 
 function resetMap(m) {
    //TODO:
