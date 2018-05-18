@@ -102,30 +102,42 @@ function initializeMapTV{$tv->id}() {
 {/literal}
     .addTo(tv{$tv->id}Map);
 
+// RESTORE saved
+// -------------
+
+// 1- get previous saved points
   var points = tv{$tv->id}Data.points;
 
+// 2- transform in map points
   for(i=0; i<points.length; i++) {
 {literal}
        var point = {lat: points[i].lat, lng: points[i].lng};
 {/literal}
+// 3- and save in new table 
        tv{$tv->id}Markers.push( newMarker( tv{$tv->id}FeatureGroup, point) );
   }
 
+// WHAT to do if map clicked
+// -------------------------
+
   tv{$tv->id}Map.on('click', function(e){
+// 1- adds new point
     marker = newMarker(tv{$tv->id}FeatureGroup, e.latlng);
 {literal}
     var point = {lat: e.latlng.lat, lng: e.latlng.lng};
 {/literal}
 
 
+// 2- then add to Datapoints for future saving
     if (tv{$tv->id}params.allowMultiple) {
       tv{$tv->id}Data.points.push(point);
     } else {
       removeMarkers();
       tv{$tv->id}Data.points = [point];
     }
-
     tv{$tv->id}Markers.push(marker);
+
+// 3- ready to save in form
     tv{$tv->id}Input.value = JSON.stringify(tv{$tv->id}Data);
     MODx.fireResourceFormChange();
 
