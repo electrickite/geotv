@@ -137,8 +137,11 @@ function initializeMapTV{$tv->id}() {
   }); // END on mapclick
 
   // Center map on contained points
-  tv{$tv->id}Map.fitBounds( tv{$tv->id}FeatureGroup.getBounds() );
  setTimeout(function(){ tv{$tv->id}Map.invalidateSize()}, 1000);
+  if( tv{$tv->id}FeatureGroup.getLayers().length > 0 )
+  {
+      tv{$tv->id}Map.fitBounds( tv{$tv->id}FeatureGroup.getBounds() );
+  }
 } // end of initializeMapTV
 
 // Just remove markers from map.
@@ -146,6 +149,8 @@ function initializeMapTV{$tv->id}() {
 function removeMarkers() {
     if( typeof(tv{$tv->id}FeatureGroup) == "undefined" )
         return;
+
+    //TODO: try this instead tv{$tv->id}FeatureGroup.clearLayers();
     tv{$tv->id}FeatureGroup.eachLayer(function(l){
         tv{$tv->id}FeatureGroup.removeLayer(l);
     });
@@ -193,8 +198,8 @@ function clearGeoTV{$tv->id}() {
   document.getElementById('tv{$tv->id}').value = "";
   initializeGlobalsTV{$tv->id}();
   initializeMapTV{$tv->id}();
-  removeMarkers();
-  featureGroupToData()
+  removeMarkers(); // remove markers
+  featureGroupToData() // update modx data
 }
 
 {literal}

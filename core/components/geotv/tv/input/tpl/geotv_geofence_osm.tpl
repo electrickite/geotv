@@ -262,8 +262,12 @@ function initializeMapTV{$tv->id}() {
     // reset internal storing
     tv{$tv->id}Polygons = new Array()
   }
-  tv{$tv->id}Map.fitBounds( tv{$tv->id}EditableLayer.getBounds() );
- setTimeout(function(){ tv{$tv->id}Map.invalidateSize()}, 1500);
+  setTimeout(function(){ tv{$tv->id}Map.invalidateSize()}, 1500);
+  console.log( tv{$tv->id}EditableLayer.getLayers().length )
+  if( tv{$tv->id}EditableLayer.getLayers().length > 0 )
+  {
+      tv{$tv->id}Map.fitBounds( tv{$tv->id}EditableLayer.getBounds() );
+  }
 } //endof initializeMapTV
 
 function resetMap(m) {
