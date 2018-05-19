@@ -262,15 +262,18 @@ function initializeMapTV{$tv->id}() {
     // reset internal storing
     tv{$tv->id}Polygons = new Array()
   }
-  setTimeout(function(){ tv{$tv->id}Map.invalidateSize()}, 1500);
-  console.log( tv{$tv->id}EditableLayer.getLayers().length )
-  if( tv{$tv->id}EditableLayer.getLayers().length > 0 )
-  {
-      tv{$tv->id}Map.fitBounds( tv{$tv->id}EditableLayer.getBounds() );
-  }
+  // reset map only after timeout 
+  setTimeout(function(){ resetMap(tv{$tv->id}Map); }, 100);
 } //endof initializeMapTV
 
 function resetMap(m) {
+  // fix display bug,
+  m.invalidateSize();
+  // then and zoom on elements
+  if( tv{$tv->id}EditableLayer.getLayers().length > 0 )
+  {
+      m.fitBounds( tv{$tv->id}EditableLayer.getBounds() );
+  }
    //var x = m.getZoom();
    //var c = m.getCenter();
    //m.setZoom(x);

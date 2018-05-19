@@ -136,13 +136,23 @@ function initializeMapTV{$tv->id}() {
 
   }); // END on mapclick
 
+  // reset map only after timeout 
+  setTimeout(function(){ resetMap(tv{$tv->id}Map); }, 100);
+} // end of initializeMapTV
+
+function resetMap(m) {
+  // fix display bug,
+  tv{$tv->id}Map.invalidateSize();
   // Center map on contained points
- setTimeout(function(){ tv{$tv->id}Map.invalidateSize()}, 1000);
   if( tv{$tv->id}FeatureGroup.getLayers().length > 0 )
   {
       tv{$tv->id}Map.fitBounds( tv{$tv->id}FeatureGroup.getBounds() );
   }
-} // end of initializeMapTV
+   //var x = m.getZoom();
+   //var c = m.getCenter();
+   //m.setZoom(x);
+   //m.setCenter(c);
+}
 
 // Just remove markers from map.
 // Modx Data  update is done else where
@@ -186,13 +196,6 @@ function featureGroupToData()
     }
 }
 
-function resetMap(m) {
-   //TODO:
-   //var x = m.getZoom();
-   //var c = m.getCenter();
-   //m.setZoom(x);
-   //m.setCenter(c);
-}
 
 function clearGeoTV{$tv->id}() {
   document.getElementById('tv{$tv->id}').value = "";
