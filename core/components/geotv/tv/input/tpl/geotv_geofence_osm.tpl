@@ -180,6 +180,9 @@ function initializeMapTV{$tv->id}() {
     });
     // after creating new polygon
     tv{$tv->id}Map.on('draw:created', function(e){
+        if ( ! tv{$tv->id}params.allowMultiple) {
+          removePolygons();
+        }
         var layer = e.layer;
         tv{$tv->id}EditableLayer.addLayer(layer);
         FeatureGroupToData();
