@@ -187,7 +187,7 @@ function initializeMapTV{$tv->id}() {
 
 
   // reset map only after timeout 
-  setTimeout(function(){ resetMap(tv{$tv->id}Map); }, 100);
+  setTimeout(function(){ resetMap{$tv->id}(tv{$tv->id}Map); }, 100);
 } //endof initializeMapTV
 
 function FeatureGroupToData()
@@ -240,7 +240,7 @@ function removePolygons() {
 
 }
 
-function resetMap(m) {
+function resetMap{$tv->id}(m) {
   // fix display bug,
   m.invalidateSize();
   // then and zoom on elements
@@ -285,7 +285,7 @@ Ext.onReady(function() {
 
     var mainTabs = Ext.getCmp("modx-resource-tabs");
     mainTabs.on('tabchange', function(parent,selectedTab){
-      resetMap(tv{$tv->id}Map);
+      resetMap{$tv->id}(tv{$tv->id}Map);
     });
 
     // We need to add the vertical tabs click handler after it has been loaded
@@ -295,7 +295,7 @@ Ext.onReady(function() {
         var vertTabs = Ext.getCmp("modx-resource-vtabs");
 
         vertTabs.on('tabchange', function(parent,selectedTab){
-          resetMap(tv{$tv->id}Map);
+          resetMap{$tv->id}(tv{$tv->id}Map);
         });
       }
     });
