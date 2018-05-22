@@ -30,10 +30,8 @@ var tv{$tv->id}EventAdded = false;
 var tv{$tv->id}Map;
 var tv{$tv->id}Input;
 var tv{$tv->id}Data;
-var tv{$tv->id}Polygons = new Array();
 var tv{$tv->id}DrawCtrl = undefined;
 var tv{$tv->id}EditableLayer = undefined;
-var tv{$tv->id}AddLayer;
 
 function initializeGlobalsTV{$tv->id}() {
   tv{$tv->id}Input = document.getElementById("tv{$tv->id}");
@@ -169,53 +167,53 @@ function initializeMapTV{$tv->id}() {
         } else
         {
             var polygon = L.polygon( shapeCoords );
-            tv{$tv->id}Polygons.push(  polygon );
+            tv{$tv->id}EditableLayer.addLayer(  polygon );
         }
     }
 
-    //setAllShapeMaps( tv{$tv->id}Map );
-    setAllShapeMaps( tv{$tv->id}EditableLayer );
-    //ENDOF RE-DRAW
+    //ENDOF RE-DRAWWWW
 
     // -----------------------------
     // Add to layer
-    //  if draw finished 
-    //  or after edited multiple polygons
     tv{$tv->id}Map.on('draw:edited', function(e){
-        layers = e.layers;
-        layers.eachLayer( tv{$tv->id}AddLayer );
+        FeatureGroupToData();
     });
     // after creating new polygon
     tv{$tv->id}Map.on('draw:created', function(e){
-        tv{$tv->id}AddLayer(e.layer);
+        var layer = e.layer;
+        tv{$tv->id}EditableLayer.addLayer(layer);
+        FeatureGroupToData();
     });
 
-    // -----------------------------
-    // Add polygon to default layer:
-    //   
-    tv{$tv->id}AddLayer = function (layer) {
 
-        //if (type != 'polygon') {
-        //  return;
-        //}
+  // reset map only after timeout 
+  setTimeout(function(){ resetMap(tv{$tv->id}Map); }, 100);
+} //endof initializeMapTV
 
-        // Erase every thing if in singleMode
-        if ( ! tv{$tv->id}params.allowMultiple) {
-          removePolygons();
-        }
+function FeatureGroupToData()
+{
+        // 1- reset Data
+        tv{$tv->id}Data.areas = [];
 
-        // add polygon to map and store for future use
-        tv{$tv->id}EditableLayer.addLayer( layer );
-        tv{$tv->id}Polygons.push(  layer );
+        // 2- Convert all layers into modx data
+         tv{$tv->id}EditableLayer.eachLayer(function(layer){
+            var points = [];
+            layer._latlngs[0].forEach(
+                function(elem, index){
+                   points.push({ lat: elem.lat, lng: elem.lng });
+            });
 
-        polygons2Data();
+            tv{$tv->id}Data.areas.push(points);
+        });
+
         tv{$tv->id}Input.value = JSON.stringify(tv{$tv->id}Data);
 
+        //3-  warn we changed
         MODx.fireResourceFormChange();
 
-        tv{$tv->id}Data.zoom = tv{$tv->id}Map.getZoom();
-        tv{$tv->id}Data.lat = tv{$tv->id}Map.getCenter().lat;
-        tv{$tv->id}Data.lng = tv{$tv->id}Map.getCenter().lng;
+        //tv{$tv->id}Data.zoom = tv{$tv->id}Map.getZoom();
+        //tv{$tv->id}Data.lat = tv{$tv->id}Map.getCenter().lat;
+        //tv{$tv->id}Data.lng = tv{$tv->id}Map.getCenter().lng;
 
         var jsonData = JSON.stringify(tv{$tv->id}Data);
 
@@ -228,43 +226,19 @@ function initializeMapTV{$tv->id}() {
           tv{$tv->id}Input.value = jsonData;
           MODx.fireResourceFormChange();
         }
-      } 
+} 
 
-  function setAllShapeMaps(layer) {
-    for (var i = 0; i < tv{$tv->id}Polygons.length; i++) {
-      layer.addLayer( tv{$tv->id}Polygons[i] );
-    }
-  }
+// Just remove markers from map.
+// Modx Data  update is done else where
+function removePolygons() {
 
-  // Convert polygon array into storable points array
-  function polygons2Data(){
-    // reset data
-    tv{$tv->id}Data.areas = [];
-    for (var i = 0; i < tv{$tv->id}Polygons.length; i++) {
-        var points = [];
-        var layer = tv{$tv->id}Polygons[i];
-        layer._latlngs[0].forEach(function(elem, index){
-           points.push({ lat: elem.lat, lng: elem.lng });
-        });
-
-        tv{$tv->id}Data.areas.push(points);
-    }
-  }
-
-  function removePolygons() {
     // remove each polygon layer from leaflet map
-    for (var i = 0; i < tv{$tv->id}Polygons.length; i++) {
-        var polygon=tv{$tv->id}Polygons[i];
-        if (typeof polygon != "undefined") {
-            tv{$tv->id}EditableLayer.removeLayer(polygon);
-        }
-    }
-    // reset internal storing
-    tv{$tv->id}Polygons = new Array()
-  }
-  // reset map only after timeout 
-  setTimeout(function(){ resetMap(tv{$tv->id}Map); }, 100);
-} //endof initializeMapTV
+    if( typeof(tv{$tv->id}EditableLayer) == "undefined" )
+        return;
+
+    tv{$tv->id}EditableLayer.clearLayers();
+
+}
 
 function resetMap(m) {
   // fix display bug,
