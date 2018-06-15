@@ -14,6 +14,7 @@ $_lang['area_maps'] = 'Mappe';
 $_lang['geotv.loading'] = 'Attendere. Sto caricando la mappa...';
 $_lang['geotv.clear'] = 'Elimina tutte le location';
 
+$_lang['geotv.markerHelp'] = 'Drag to move</br>Clic to remove';
 $_lang['geotv.allowMultiple'] = 'Valori multipli';
 $_lang['geotv.allowMultipleDesc'] = 'Permetti all\'utente di specificare valori multipli per questo campo';
 $_lang['geotv.centerLat'] = 'Latitudine di default';

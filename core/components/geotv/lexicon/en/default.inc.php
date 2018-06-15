@@ -11,9 +11,40 @@ $_lang['geotv_geopoint'] = 'Geographic Point';
 
 $_lang['area_maps'] = 'Maps';
 
+// Leaflet.Map messages
 $_lang['geotv.loading'] = 'Please wait. Loading map...';
 $_lang['geotv.clear'] = 'Clear all locations';
 
+// Leaflet.Draw tooltip messages
+$_lang['geotv.draw_startpoly'] = 'Clic to Start';
+$_lang['geotv.draw_nextpoly'] = 'Clic for Next';
+$_lang['geotv.draw_endpoly'] = 'Clic on first point to finish';
+
+$_lang['geotv.draw_toolbarcancel'] = 'Cancel';
+$_lang['geotv.draw_toolbarcanceltitle'] = 'Cancel Polygon Drawing';
+$_lang['geotv.draw_toolbarfinish'] = 'Finish';
+$_lang['geotv.draw_toolbarfinishtitle'] = 'Finish Polygon Drawing';
+$_lang['geotv.draw_toolbarundo'] = 'Undo';
+$_lang['geotv.draw_toolbarundotitle'] = 'Undo Last point';
+
+$_lang['geotv.draw_polybutton'] = 'Draw Polygon';
+
+$_lang['geotv.draw_handlertext'] = 'Drag to move</br>Clic to remove';
+$_lang['geotv.draw_handlersubtext'] = 'Click cancel to undo changes';
+
+$_lang['geotv.draw_layersedit'] = 'Edit Layers';
+$_lang['geotv.draw_layerseditdisabled'] = 'No layers to edit';
+$_lang['geotv.draw_layersremove'] = 'Remove layers';
+$_lang['geotv.draw_layersremovedisabled'] = 'No layers to remove';
+$_lang['geotv.draw_layerssave'] = 'Save';
+$_lang['geotv.draw_layerssavetitle'] = 'Save Title';
+$_lang['geotv.draw_layerscancel'] = 'Cancel';
+$_lang['geotv.draw_layerscanceltitle'] = 'Cancel Title';
+$_lang['geotv.draw_layersclearall'] = 'Clear All Layers';
+$_lang['geotv.draw_layersclearalltitle'] = 'Clear All Layers Title';
+
+
+$_lang['geotv.markerHelp'] = 'Drag to move</br>Clic to remove';
 $_lang['geotv.allowMultiple'] = 'Multiple values';
 $_lang['geotv.allowMultipleDesc'] = 'Allow user to enter multiple values for this field';
 $_lang['geotv.centerLat'] = 'Default latitude';
@@ -38,3 +69,5 @@ $_lang['geotv.decimalSepDesc'] = 'Decimal point character';
 
 $_lang['setting_geotv.api_key'] = 'API Key';
 $_lang['setting_geotv.api_key_desc'] = 'Google Maps API Key';
+$_lang['setting_geotv.enable_osm'] = 'OSM Switch';
+$_lang['setting_geotv.enable_osm_desc'] = 'Set OpenStreetMap as default map';

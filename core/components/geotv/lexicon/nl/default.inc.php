@@ -14,6 +14,7 @@ $_lang['area_maps'] = 'Kaarten';
 $_lang['geotv.loading'] = 'Een ogenblik geduld, de kaart wordt geladen...';
 $_lang['geotv.clear'] = 'Verwijder alle markeringen';
 
+$_lang['geotv.markerHelp'] = 'Drag to move</br>Clic to remove';
 $_lang['geotv.allowMultiple'] = 'Meerdere markeringen toestaan';
 $_lang['geotv.allowMultipleDesc'] = 'Sta toe om meerdere markeringen op te geven';
 $_lang['geotv.centerLat'] = 'Standaard breedtegraad';
